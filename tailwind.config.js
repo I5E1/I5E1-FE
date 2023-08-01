@@ -19,7 +19,10 @@ module.exports = {
     // },
 
     // 폰트 지정
-    fontFamily: {}
+    fontFamily: {
+      'Noto': ['Noto Sans KR', 'sans-serif'],
+      'Spoqa': ['Spoqa Han Sans Neo', 'sans-serif']
+    }
 
     //전역 간격 및 크기 조정 척도를 사용자 정의
     // spacing: {}

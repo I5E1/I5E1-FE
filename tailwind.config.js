@@ -22,6 +22,22 @@ module.exports = {
     fontFamily: {
       'Noto': ['Noto Sans KR', 'sans-serif'],
       'Spoqa': ['Spoqa Han Sans Neo', 'sans-serif']
+    },
+    extend: {
+      width: {
+        '1280': '80rem',
+        '640': '40rem',
+        '448': '34rem'
+      },
+      borderRadius: {
+        'lg': '30px'
+      },
+      color: {
+        'primary': '#0474e4',
+        'secondary': '#029104',
+        'btn-default': '#d9d9d9',
+        'text-secondary': '#8e8e8e'
+      }
     }
 
     //전역 간격 및 크기 조정 척도를 사용자 정의

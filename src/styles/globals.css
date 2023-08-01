@@ -22,6 +22,7 @@
 body {
   position: relative;
   min-height: 100vh;
+  color: #191919;
 }
 
 @layer base {

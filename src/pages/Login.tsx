@@ -9,22 +9,22 @@ export default function Login () {
           <div className='mb-11'>
             <p className='mb-3'>안녕하세요</p>
             <p>
-              <span className='font-Spoqa font-bold tracking-normal text-6xl text-[#0474E4]'>RE:POST</span>입니다
+              <span className='font-Spoqa font-bold tracking-normal text-6xl text-[#0474e4]'>RE:POST</span>입니다
             </p>
           </div>
           <form className='mb-20'>
             <div className='mb-7'>
               <p className='text-lg mb-2.5'>이메일</p>
               <input 
-                className='text-base font-normal border w-full px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474E4]' 
+                className='text-base font-normal border w-full px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
                 type='email' 
-                placeholder='이메일을 입력해주세요.' 
+                placeholder='이메일을 입력해주세요.'  
               />
             </div>
             <div className='mb-10'>
               <p className='text-lg mb-2.5'>비밀번호</p>
               <input 
-                className='text-base font-normal border w-full px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474E4]' 
+                className='text-base font-normal border w-full px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
                 type='password' 
                 placeholder='비밀번호를 입력해주세요.' 
               />

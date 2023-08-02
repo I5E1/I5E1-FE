@@ -1,4 +1,4 @@
-export default function Login () {
+export default function SignIn () {
   return (
     <div className='flex h-screen font-Noto'>
       <div className='w-[80rem] p-8'>

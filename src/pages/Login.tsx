@@ -47,8 +47,8 @@ export default function Login () {
           </div>
         </div>
       </div>
-      <div className='w-[40rem] rounded-l-[30px] p-8 bg-[#0474E4] text-white tracking-tighter'>
-        <div className='text-center mt-60 mb-5'>
+      <div className='w-[40rem] rounded-l-[30px] p-8 bg-[#0474E4] text-white tracking-tighter flex flex-col justify-end'>
+        <div className='text-center mb-5'>
           <h3 className='text-3xl mb-12'>환영합니다!</h3>
           <p className='mb-20'>
             연차와 당직 관리<br />

@@ -64,7 +64,7 @@ const Calendar = () => {
     return (
       <div className="h-[100px] " key={index}>
         {/* border-t border-l */}
-        <div className="border-b w-3/4 mx-auto pb-[10px] pl-[10px]">
+        <div className="border-b w-3/4 mx-auto pb-[10px] pl-[10px] mx-[10px]">
           <Day day={day} calendarMonth={calendarData.get('month') + 1} />
         </div>
       </div>

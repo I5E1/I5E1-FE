@@ -63,8 +63,7 @@ const Calendar = () => {
   const body = days.map((day, index) => {
     return (
       <div className="h-[100px] " key={index}>
-        {/* border-t border-l */}
-        <div className="border-b w-3/4 mx-[10px] pb-[10px] pl-[10px]">
+        <div className="border-b-2 border-gray w-3/4 mx-[10px] pb-[10px] pl-[10px]">
           <Day day={day} calendarMonth={calendarData.get('month') + 1} />
         </div>
       </div>
@@ -73,7 +72,6 @@ const Calendar = () => {
 
   return (
     <div>
-      Calendar
       <div className="flex">
         <input
           className="text-[2rem] font-bold mb-[1rem]"
@@ -82,9 +80,8 @@ const Calendar = () => {
           onChange={(e) => setCalendarData(dayjs(e.target.value))}
         />
       </div>
-      <div className="grid grid-cols-7 gap-0 mb-[20px]">{week}</div>
-      <div className="grid grid-cols-7 gap-0 ">{body}</div>
-      {/* border-b border-r */}
+      <div className="font-bold grid grid-cols-7 gap-0 mb-[20px]">{week}</div>
+      <div className="font-bold grid grid-cols-7 gap-0 ">{body}</div>
     </div>
   )
 }

@@ -19,7 +19,7 @@ export default function SignIn() {
             <div className="mb-7">
               <p className="text-lg mb-2.5">이메일</p>
               <input
-                className="text-base font-normal border w-full px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]"
+                className="text-base font-normal border min-w-full px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]"
                 type="email"
                 placeholder="이메일을 입력해주세요."
               />

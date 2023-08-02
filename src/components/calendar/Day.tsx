@@ -10,14 +10,14 @@ const Day = ({
 }) => {
   if (day.month === calendarMonth) {
     if (day.day === '토') {
-      return <div className="text-blue-600">{day.date}</div>
+      return <div className="text-[#3d81ff]">{day.date}</div>
     } else if (day.day === '일') {
-      return <div className="text-red-600">{day.date}</div>
+      return <div className="text-[#ff5c5c]">{day.date}</div>
     } else {
       return <div>{day.date}</div>
     }
   } else {
-    return <div className="text-black/50">{day.date}</div>
+    return <div className="text-[black]/50">{day.date}</div>
   }
 }
 

@@ -22,14 +22,12 @@ module.exports = {
 
     //전체 색상 팔레트를 사용자 정의
     colors: {
-      //태마 컬러
+      //전역
       primary: '#0474e4',
       secondary: '#029104',
-
-      // ???
-      'btn-default': '#d9d9d9',
-      text1: '#191919',
-      text2: '#8e8e8e',
+      btnDefault: '#d9d9d9',
+      mainText: '#191919',
+      subText: '#8e8e8e',
 
       //calendar 구성 색상
       'sun-day': '#ff5c5c',

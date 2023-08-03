@@ -16,12 +16,8 @@ module.exports = {
     //반응형 중단점
     screens: {
       sm: '480px',
-      md: '1080px'
-    },
-    width: {
-      // ???: '1280px',
-      // ???: '640px',
-      // ???: '448px'
+      md: '1080px',
+      lg: '1280px'
     },
 
     //전체 색상 팔레트를 사용자 정의
@@ -42,7 +38,11 @@ module.exports = {
       white: 'white',
 
       //enroll 구성 색상
-      inputBorder: '#8E8E8E'
+      inputBorder: '#8E8E8E',
+
+      //mypage 구성 색상
+      'sub-primary': '#03A9F5',
+      'gray-light': '#8e8e8e'
     },
 
     // 폰트 지정

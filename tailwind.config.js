@@ -30,7 +30,12 @@ module.exports = {
 
       //calendar 구성 색상
       'sun-day': '#ff5c5c',
-      'satur-day': '#3d81ff'
+      'satur-day': '#3d81ff',
+      gray: '#D9D9D9',
+      white: 'white',
+
+      //enroll 구성 색상
+      inputBorder: '#8E8E8E'
     },
 
     // 폰트 지정

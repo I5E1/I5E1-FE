@@ -18,7 +18,7 @@ export default function SignUp () {
               <div className='mb-7'>
                 <p className='text-lg mb-2.5'>사원명</p>
                 <input 
-                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
+                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-primary' 
                   type='text' 
                   placeholder='사원명을 입력해주세요.'  
                 />
@@ -27,7 +27,7 @@ export default function SignUp () {
                 <p className='text-lg mb-2.5'>이메일</p>
                 <div className='flex'>
                   <input 
-                    className='text-base font-normal border w-96 px-5 py-2.5 mr-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
+                    className='text-base font-normal border w-96 px-5 py-2.5 mr-2.5 rounded-md focus:outline-none focus:border-primary' 
                     type='email' 
                     placeholder='이메일을 입력해주세요.' 
                   />
@@ -37,7 +37,7 @@ export default function SignUp () {
               <div>
                 <p className='text-lg mb-2.5'>연락처</p>
                 <input 
-                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
+                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-primary' 
                   type='tel' 
                   name='phone'
                   pattern='(010)-\d{3,4}-\d{4}'
@@ -50,7 +50,7 @@ export default function SignUp () {
               <div className='mb-7'>
                 <p className='text-lg mb-2.5'>비밀번호</p>
                 <input 
-                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
+                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-primary' 
                   type='password' 
                   placeholder='비밀번호를 입력해주세요.'  
                 />
@@ -58,7 +58,7 @@ export default function SignUp () {
               <div className='mb-10'>
                 <p className='text-lg mb-2.5'>비밀번호 확인</p>
                 <input 
-                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-[#0474e4]' 
+                  className='text-base font-normal border w-96 px-5 py-2.5 rounded-md focus:outline-none focus:border-primary' 
                   type='password' 
                   placeholder='비밀번호를 입력해주세요.' 
                 />
@@ -67,7 +67,7 @@ export default function SignUp () {
           </form>
           <div className="text-center">
             <button 
-              className='w-60 h-16 py-2.5 bg-[#d9d9d9] rounded-[30px] font-normal text-base text-[white] hover:bg-[#0474e4] transition duration-300' 
+              className='w-60 h-16 py-2.5 bg-btnDefault rounded-[30px] font-normal text-base text-[white] hover:bg-primary transition duration-300' 
               type='submit'
             >
               회원가입
@@ -75,7 +75,7 @@ export default function SignUp () {
           </div>
         </div>
       </div>
-      <div className='w-[40rem] rounded-l-[30px] p-8 bg-[#0474E4] text-white tracking-tighter flex flex-col justify-end'>
+      <div className='w-[40rem] rounded-l-[30px] p-8 bg-primary text-white tracking-tighter flex flex-col justify-end'>
         <div>
           <img src='/worker.png' alt='worker' />
         </div>

@@ -87,7 +87,7 @@ export default function SignIn() {
                 }}
               />
             </div>
-            <div className='flex items-center gap-3'>
+            <div className='flex items-center gap-3 mb-16'>
               <input 
                 className='w-7 h-7 rounded-md'
                 type='checkbox' 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Login } from '@/types/api'
+import { Login, Join, Check } from '@/types/api'
 
 const api = axios.create({
   baseURL: '/api',
@@ -17,4 +17,22 @@ const login = async ({ email, password }: Login) => {
   }
 };
 
-export { login };
+const join = async ({ email, password, tel, username }: Join) => {
+  try {
+    const res = await api.post('/join', { email, password, tel, username });
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const check = async ({ email }: Check) => {
+  try {
+    const res = await api.get(`/check?email=${email}`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { login, join, check };

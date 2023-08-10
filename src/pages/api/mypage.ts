@@ -1,5 +1,19 @@
-import { ChangeUser, annualApply, dutyApply } from '@/types/api'
+import { ChangeUser, Check, annualApply, dutyApply } from '@/types/api'
 import axios from 'axios'
+
+const checkTest = async ({ email }: Check) => {
+  const res = await axios({
+    url: '/api/serverLess',
+    method: 'POST',
+    data: {
+      method: 'GET',
+      path: `check?email=${email}`
+    }
+  })
+
+  console.log(res)
+  return res
+}
 
 const readUser = async (accessToken: string | null) => {
   const res = await axios({
@@ -69,4 +83,4 @@ const setDutyApply = async (accessToken: string | null, newDuty: dutyApply) => {
   return res
 }
 
-export { userDataChange, readUser, setAnnualApply, setDutyApply }
+export { checkTest, userDataChange, readUser, setAnnualApply, setDutyApply }

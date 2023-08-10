@@ -3,4 +3,5 @@ export type CalendarDate = {
   month: number
   date: number
   day: string
+  strDate: string
 }

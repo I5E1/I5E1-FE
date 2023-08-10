@@ -16,28 +16,31 @@ module.exports = {
     //반응형 중단점
     screens: {
       sm: '480px',
-      md: '1080px'
-    },
-    width: {
-      // ???: '1280px',
-      // ???: '640px',
-      // ???: '448px'
+      md: '1080px',
+      lg: '1280px'
     },
 
     //전체 색상 팔레트를 사용자 정의
     colors: {
-      //태마 컬러
+      //전역
       primary: '#0474e4',
       secondary: '#029104',
-
-      // ???
-      'btn-default': '#d9d9d9',
-      text1: '#191919',
-      text2: '#8e8e8e',
+      btnDefault: '#d9d9d9',
+      mainText: '#191919',
+      subText: '#8e8e8e',
 
       //calendar 구성 색상
       'sun-day': '#ff5c5c',
-      'satur-day': '#3d81ff'
+      'satur-day': '#3d81ff',
+      gray: '#D9D9D9',
+      white: 'white',
+
+      //enroll 구성 색상
+      inputBorder: '#8E8E8E',
+
+      //mypage 구성 색상
+      'sub-primary': '#03A9F5',
+      'gray-light': '#8e8e8e'
     },
 
     // 폰트 지정

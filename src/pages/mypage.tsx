@@ -1,6 +1,56 @@
-import MyHistory from '@/components/myHistory/MyHistory'
+import { useAnnualStore, useDutyStore } from '@/store/store'
+import { useUserStore } from '@/store/userStore'
+import { annual, duty, user } from '@/types/api'
+import router from 'next/router'
+import { useEffect, useState } from 'react'
+import { userDataChange } from './api/mypage'
 
 export default function MyPage() {
+  const accessToken =
+    typeof window !== 'undefined' ? sessionStorage.getItem('access') : null
+
+  const [user, setUser] = useState<user>({})
+  const [annual, setAnnual] = useState<annual[]>([])
+  const [duty, setDuty] = useState<duty[]>([])
+
+  const { userData, getUser } = useUserStore()
+  const { annualList, getAnnualList } = useAnnualStore()
+  const { dutyList, getDutyList } = useDutyStore()
+
+  useEffect(() => {
+    getUser(accessToken)
+    getAnnualList(accessToken)
+    getDutyList(accessToken)
+  }, [])
+
+  useEffect(() => {
+    setUser(userData)
+    setAnnual(annualList)
+    setDuty(dutyList)
+  }, [userData, annualList, dutyList])
+
+  const { position, name, email, tel, annualCount } = user
+
+  const [newTel, setNewTel] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const handleMyDataChangeClick = async () => {
+    interface ChangeUser {
+      tel?: string
+      password?: string
+    }
+    let newData = {} as ChangeUser
+    newData.tel = newTel
+    if (newPassword !== '') {
+      newData.password = newPassword
+    }
+    console.log(newData)
+    const newUser = await userDataChange(accessToken, newData)
+
+    setUser(newUser)
+  }
+
+  console.log(annual)
+  console.log(duty)
   return (
     <>
       <div className="container mx-auto">
@@ -20,29 +70,17 @@ export default function MyPage() {
                   <div className="my-info">
                     <span className="my-info-title">직급</span>
                     <span className="input-span">|</span>
-                    <span className="my-data"> 임시직급</span>
+                    <span className="my-data">{position}</span>
                   </div>
                   <div className="my-info">
                     <span className="my-info-title">이름</span>
                     <span className="input-span">|</span>
-                    <span className="my-data">
-                      <input
-                        className="my-input"
-                        type="text"
-                        placeholder="홍길동"
-                      />
-                    </span>
+                    <span className="my-data">{name}</span>
                   </div>
                   <div className="my-info">
                     <span className="my-info-title">이메일</span>
                     <span className="input-span">|</span>
-                    <span className="my-data">
-                      <input
-                        className="my-input"
-                        type="text"
-                        placeholder="fastcampus@gmail.com"
-                      />
-                    </span>
+                    <span className="my-data">{email}</span>
                   </div>
                   <div className="my-info">
                     <span className="my-info-title">연락처</span>
@@ -51,7 +89,12 @@ export default function MyPage() {
                       <input
                         className="my-input"
                         type="text"
+                        defaultValue={tel}
                         placeholder="010-0000-0000"
+                        onChange={(e) => {
+                          console.log(e.target.value)
+                          setNewTel(e.target.value)
+                        }}
                       />
                     </span>
                   </div>
@@ -63,31 +106,102 @@ export default function MyPage() {
                         className="my-input"
                         type="password"
                         placeholder="********"
+                        onChange={(e) => {
+                          console.log(e.target.value)
+                          setNewPassword(e.target.value)
+                        }}
                       />
                     </span>
                   </div>
                   <div className="my-info">
                     <span className="my-info-title">잔여일수</span>
                     <span className="input-span">|</span>
-                    <span className="my-data"> 임시일수</span>
+                    <span className="my-data">{annualCount}</span>
                   </div>
                 </div>
-                <button className="bg-primary text-[white] w-[140px] h-[50px] rounded-[6px] block ml-auto">
-                  정보 수정
-                </button>
+                <div className="flex">
+                  <button
+                    className="bg-secondary text-[white] w-[140px] h-[50px] rounded-[6px] block mr-auto"
+                    onClick={() => {
+                      sessionStorage.removeItem('access')
+                      router.push('/signin')
+                    }}
+                  >
+                    로그아웃
+                  </button>
+                  <button
+                    className="bg-primary text-[white] w-[140px] h-[50px] rounded-[6px] block ml-auto"
+                    onClick={handleMyDataChangeClick}
+                  >
+                    정보 수정
+                  </button>
+                </div>
               </div>
             </div>
             <div className="w-full lg:max-w-[700px] ">
+              <button
+                className="bg-secondary text-[white] w-[140px] h-[50px] rounded-[6px] block mr-auto mb-[20px]"
+                onClick={() => router.push('/')}
+              >
+                메인으로
+              </button>
               <div className="history-container mb-[40px]">
                 <div className="history-title">연차 내역</div>
                 <div className="h-full overflow-auto">
-                  <MyHistory />
+                  {annual
+                    ? annual.map((item, index) => {
+                        let status
+                        if (item.status === 'COMPLETED') {
+                          status = '완료'
+                        }
+                        if (item.status === 'REQUESTED') {
+                          status = '요청'
+                        }
+                        if (item.status === 'APPROVED') {
+                          status = '승인'
+                        }
+                        return (
+                          <div
+                            className="flex justify-around border border-gray-light rounded-[6px] p-[5px] mb-[15px] text-sm mr-[15px]"
+                            key={index}
+                          >
+                            <div>
+                              {item.startDate} - {item.endDate}
+                            </div>
+                            <span>{status}</span>
+                          </div>
+                        )
+                      })
+                    : null}
                 </div>
               </div>
               <div className="history-container">
                 <div className="history-title">당직 내역</div>
                 <div className="h-full overflow-auto">
-                  <MyHistory />
+                  {duty
+                    ? duty.map((item, index) => {
+                        let status
+                        if (item.status === 'COMPLETED') {
+                          status = '완료'
+                        }
+                        if (item.status === 'REQUESTED') {
+                          status = '요청'
+                        }
+                        if (item.status === 'APPROVED') {
+                          status = '승인'
+                        }
+                        return (
+                          <div
+                            className="flex justify-around border border-gray-light rounded-[6px] p-[5px] mb-[15px] text-sm mr-[15px]"
+                            key={index}
+                          >
+                            <div>{item.dutyDate}</div>
+                            <div>{item.reason}</div>
+                            <div>{status}</div>
+                          </div>
+                        )
+                      })
+                    : null}
                 </div>
               </div>
             </div>

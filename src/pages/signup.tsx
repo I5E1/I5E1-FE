@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, FormEvent } from 'react'
 import { useRouter } from 'next/router'
 import { join, check } from '@/pages/api/api'
-import { checkTest } from './api/mypage'
 
 export default function SignUp() {
   const router = useRouter()
@@ -104,29 +103,6 @@ export default function SignUp() {
     }
   }
 
-  const handleEmailCheckClick2 = async (e: FormEvent) => {
-    e.preventDefault()
-    if (!validateEmail(email)) {
-      setEmailError('잘못된 이메일 형식입니다.')
-      return
-    }
-
-    try {
-      const response = checkTest({ email })
-
-      // if (response.status === 200) {
-      //   setEmailError('사용할 수 있는 이메일입니다.')
-      // } else if (response.status === 409) {
-      //   setEmailError('이미 가입된 이메일입니다.')
-      // } else {
-      //   setEmailError('중복된 이메일입니다.')
-      // }
-    } catch (error) {
-      console.error(error)
-      setEmailError('이메일을 확인하는 동안 오류가 발생했습니다.')
-    }
-  }
-
   useEffect(() => {
     const localToken = localStorage.getItem('token')
     if (localToken) {
@@ -186,13 +162,6 @@ export default function SignUp() {
                     onClick={handleEmailCheckClick}
                   >
                     중복체크
-                  </button>
-                  <button
-                    type="button"
-                    className="py-2.5 w-16 bg-secondary text-[white] rounded-md text-xs"
-                    onClick={handleEmailCheckClick2}
-                  >
-                    중복체크2
                   </button>
                 </div>
                 {emailError && (

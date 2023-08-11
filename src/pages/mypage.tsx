@@ -43,14 +43,12 @@ export default function MyPage() {
     if (newPassword !== '') {
       newData.password = newPassword
     }
-    console.log(newData)
+
     const newUser = await userDataChange(accessToken, newData)
 
     setUser(newUser)
   }
 
-  console.log(annual)
-  console.log(duty)
   return (
     <>
       <div className="container mx-auto">
@@ -92,7 +90,6 @@ export default function MyPage() {
                         defaultValue={tel}
                         placeholder="010-0000-0000"
                         onChange={(e) => {
-                          console.log(e.target.value)
                           setNewTel(e.target.value)
                         }}
                       />
@@ -107,7 +104,6 @@ export default function MyPage() {
                         type="password"
                         placeholder="********"
                         onChange={(e) => {
-                          console.log(e.target.value)
                           setNewPassword(e.target.value)
                         }}
                       />
@@ -183,7 +179,6 @@ export default function MyPage() {
                 <div className="h-full overflow-auto">
                   {duty
                     ? duty.map((item, index) => {
-                        console.log(item.status)
                         let status
                         if (item.status === 'COMPLETED') {
                           status = '완료'
